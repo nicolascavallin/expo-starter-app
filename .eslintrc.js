@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    // es6: true,
   },
   extends: ["@react-native-community", "plugin:react/recommended", "airbnb", "prettier"],
   parser: "@typescript-eslint/parser",
@@ -12,7 +13,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "simple-import-sort"],
+  plugins: ["react", "@typescript-eslint", "simple-import-sort", "import"],
   rules: {
     // Aerolab defaults
     "@typescript-eslint/camelcase": "off",
@@ -30,15 +31,27 @@ module.exports = {
     "linebreak-style": ["error", "unix"],
     "newline-before-return": "error",
     "no-console": "warn",
-    "sort-imports": "error",
+    // 'sort-imports': 'error',
     strict: ["error", "global"],
     // Fixed from defaults
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
     // Added by Team
+    "sort-imports": [
+      "off",
+      {
+        ignoreCase: false,
+        ignoreDeclarationSort: false,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ["single", "multiple", "all", "none"],
+        allowSeparatedGroups: false,
+      },
+    ],
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
+    "import/first": "warn",
+    "import/newline-after-import": "warn",
+    "import/no-duplicates": "error",
     "react/jsx-filename-extension": ["warn", { extensions: [".js", ".jsx", ".tsx"] }],
     "no-use-before-define": ["off", { classes: true, functions: true }],
-    // "sort-keys": ["error", "asc", { caseSensitive: true, minKeys: 2, natural: false }],
     "react/jsx-sort-props": [
       "error",
       {
@@ -46,7 +59,6 @@ module.exports = {
         shorthandLast: true,
         ignoreCase: true,
         noSortAlphabetically: false,
-        reservedFirst: ["key", "id"],
       },
     ],
   },
