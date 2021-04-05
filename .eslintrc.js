@@ -1,4 +1,3 @@
-/* eslint-disable sort-keys */
 module.exports = {
   env: {
     browser: true,

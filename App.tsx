@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Text, View } from "react-native";
 
 const App: FC = () => {
-  const name = "heey";
+  const name = "hey";
 
   return (
     <View>
